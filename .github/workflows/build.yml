@@ -11,10 +11,8 @@ jobs:
     name: SonarQube Scan
     runs-on: self-hosted
     steps:
-      - name: Set Env
-        run: echo ::set-env name=GITHUB_WORKSPACE::$GITHUB_WORKSPACE
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Scanning
-        run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.projectBaseDir=${{ env.GITHUB_WORKSPACE }} -Dsonar.qualitygate.wait=true
+        run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.projectBaseDir=${{ github.workspace }} -Dsonar.qualitygate.wait=true
