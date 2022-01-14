@@ -11,6 +11,8 @@ jobs:
     name: SonarQube Scan
     runs-on: self-hosted
     steps:
+      - name: Set Env
+        run: echo ::set-env name=GITHUB_WORKSPACE::$GITHUB_WORKSPACE
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
