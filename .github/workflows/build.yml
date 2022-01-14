@@ -16,14 +16,3 @@ jobs:
           fetch-depth: 0
       - name: Scanning
         run: sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.projectBaseDir=${{ env.GITHUB_WORKSPACE }} -Dsonar.qualitygate.wait=true
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
