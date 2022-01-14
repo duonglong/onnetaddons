@@ -12,10 +12,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
+        working-directory: ./sonarqube-action
         with:
           fetch-depth: 0
       - uses: sonarsource/sonarqube-scan-action@master
-        working-directory: ./sonarqube-action
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
