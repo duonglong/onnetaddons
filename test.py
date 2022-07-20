@@ -3,7 +3,6 @@ class Test(object):
         return 2
 
 
-class Test34(object):
+class Test3334(object):
     def __init__(self):
         return 100
-
